@@ -2,6 +2,27 @@ Exercises of Chapter 1
 
 1.1 Suppose you have a sorted list of 128 names, and you’re searching through it using binary search. What’s the maximum number of steps it would take?
 128-->64-->32-->16-->8-->4-->2-->1  log(2)128 = 7
+        function binarySearch(list, item) {
+        let low = 0;
+        let high = list.length - 1;
+        let steps = 0;
+        while (low <= high) {
+          let mid = Math.floor((low + high) / 2);
+          let guess = list[mid];
+          if (guess === item) {
+            return steps;
+          } else if (guess < item) {
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+          steps++;
+        }
+        return -10; //The item doesn’t exist.
+      }
+      const my_list = [1, 2, 3, 4, 5];
+      const answer = binarySearch(my_list, 3);
+      console.log(answer); 
 
 1.2 Suppose you double the size of the list. What’s the maximum number of steps now?
 256-->128-->64-->32-->16-->8-->4-->2-->1 log(2)256 = 8
