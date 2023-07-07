@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript</h1>
+
+<p id="demo">123</p>
+
+<script>
+//2.1 Suppose you’re building an app to keep track of your finances. Groceries, movie and sfbc membership.
+//Every day, you write down everything you spent money on. At the end of the month, you review your expenses and sum up how much you spent. So, you have lots of inserts and a few reads. Should you use an array or a list?
+
+class Node{
+    constructor(data){
+        this.data = data;
+        this.next = null;
+    }
+}
+class LinkedList{
+    constructor(){
+        this.head = null;
+    }
+    append(data){
+        const newNode = new Node(data);
+        if(this.head === null){
+            this.head = newNode;
+            this.tail = newNode;
+        } else{
+            this.tail.next = newNode;
+            this.tail = newNode;
+
+        }
+    }
+}
+const expenses = new LinkedList();
+expenses.append(10);
+expenses.append(20);
+let currentNode = expenses.head;
+let listString = '';
+while (currentNode !== null) {
+  listString += currentNode.data + ' ';
+  currentNode = currentNode.next;
+}
+document.getElementById("demo").innerHTML = listString;
+// Considering that we would have many inserts and read only once a month, we should use linked lists, not arrays for this app.
+</script>
+</body>
+</html>
