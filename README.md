@@ -10,7 +10,7 @@ This book is a fully illustrated, friendly guide that teaches you how to apply c
 6. Breadth-first search
 7. Dijkstra's algorithm
 8. Greedy algorithms
-And few more...
+###### And few more... ######
 
 
 ## Algorithm book problem solutions ##
