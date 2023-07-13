@@ -23,7 +23,7 @@ class Hashtable{
         }
     
         return total % this.size;
-      }
+    }
     set(key,value){
         const index = this.hash(key);
         this.table[index] = value;
