@@ -1,5 +1,5 @@
 //7.1 In each of these graphs, what is the weight of the shortest path from start to finish?
-// Variant A
+// Variant C
 
 class ShortestPath{
     NO_PARENT = -1;	
@@ -46,7 +46,7 @@ class ShortestPath{
         this.path.add(i);
     } 
 }
-//       2node --4> 4node \
+		//       2node --4> 4node \
 //     5 ^  ^  \        |  \3
 //      /   |   \       |   V
 // start   8|   2\     6|  finish(5node)

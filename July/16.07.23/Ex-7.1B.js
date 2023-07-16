@@ -1,5 +1,5 @@
 //7.1 In each of these graphs, what is the weight of the shortest path from start to finish?
-// Variant A
+// Variant B
 
 class ShortestPath{
     NO_PARENT = -1;	
@@ -46,23 +46,25 @@ class ShortestPath{
         this.path.add(i);
     } 
 }
-//       2node --4> 4node \
-//     5 ^  ^  \        |  \3
-//      /   |   \       |   V
-// start   8|   2\     6|  finish(5node)
-//      \   |     \     |   ^
-//     2 v  |      V    V  /1
-//      1node ---7> 3node /
+//         1node  -20>  2node
+//         ^    ^       /   \
+//      10/     1\    1/     |30
+//       /        \   V      V
+//  start         3node      finish(4node)
 const adjacencyMatrix = [
-    [ 0, 2, 5, 0, 0, 0],    
-    [ 0, 0, 8, 7, 0, 0], 
-    [ 0, 0, 0, 2, 4, 0], 
-    [ 0, 0, 0, 0, 0, 1], 
-    [ 0, 0, 0, 6, 0, 3], 
-    [ 0, 0, 0, 0, 0, 0]
+    [ 0, 10, 0, 0, 0],    
+    [ 0, 0, 20, 0, 0], 
+    [ 0, 0, 0, 1, 30], 
+    [ 0, 1, 0, 0, 0], 
+    [ 0, 0, 0, 6, 0], 
 ];
 let src = 0, dest = 5;
 myObj = new ShortestPath();
 myObj.shortestPath(adjacencyMatrix, src, dest); 
 let list = Array.from(myObj.allDists); 
 console.log("Shortest distance: " + list[0]);
+
+
+// Answer is "Uncaught RangeError RangeError: Maximum call stack size exceeded"
+// You can’t use Dijkstra’s algorithm if you have cycles
+// Dijkstra’s algorithm only works with directed acyclic graphs, called DAGs for short
