@@ -46,23 +46,26 @@ class ShortestPath{
         this.path.add(i);
     } 
 }
-		//       2node --4> 4node \
-//     5 ^  ^  \        |  \3
-//      /   |   \       |   V
-// start   8|   2\     6|  finish(5node)
-//      \   |     \     |   ^
-//     2 v  |      V    V  /1
-//      1node ---7> 3node /
+//      2node --2> 4node(finish)
+//       ^  ^ \_           ^
+//     2/   |   \          |
+// start   2|    \_2_      |2
+//     2\   |        \     |
+//       V  |         V    |
+//      1node <--(-1) 3node|
 const adjacencyMatrix = [
-    [ 0, 2, 5, 0, 0, 0],    
-    [ 0, 0, 8, 7, 0, 0], 
-    [ 0, 0, 0, 2, 4, 0], 
-    [ 0, 0, 0, 0, 0, 1], 
-    [ 0, 0, 0, 6, 0, 3], 
-    [ 0, 0, 0, 0, 0, 0]
+    [ 0, 2, 2, 0, 0],    
+    [ 0, 0, 2, 0, 0], 
+    [ 0, 0, 0, 2, 2], 
+    [ 0, (-1), 0, 0, 2], 
+    [ 0, 0, 0, 0, 0], 
 ];
 let src = 0, dest = 5;
 myObj = new ShortestPath();
 myObj.shortestPath(adjacencyMatrix, src, dest); 
 let list = Array.from(myObj.allDists); 
 console.log("Shortest distance: " + list[0]);
+
+// Answer is "Uncaught RangeError RangeError: Maximum call stack size exceeded"
+// You can’t use Dijkstra’s algorithm if you have negative-weight edges
+// If you want to find the shortest path in a graph that has negative-weight edges, there’s an algorithm for that! It’s called the Bellman-Ford algorithm.
