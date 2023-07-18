@@ -9,13 +9,13 @@ function findClosestHome(currentHome, homes){
     let closestHome;
     let closestDistance = Infinity;
     for(const [key, coordinates] of homes){
-        if (key !== currentHome){
+        if(key !== currentHome){
             const distance = calculateDistance(coordinates, homes.get(currentHome));
-        if (distance < closestDistance){
-            closestHome = key;
-            closestDistance = distance;
+            if(distance < closestDistance){
+                closestHome = key;
+                closestDistance = distance;
+            }
         }
-      }
     }
     return closestHome;
 }  
@@ -26,18 +26,17 @@ function navigatePostman(homes){
     visitedHomes.add(currentHome);
 
     while(visitedHomes.size < homes.size){
-      let closestDistance = Infinity;
-      let closestHome;
-      for(const [key, coordinates] of homes){
-        if (!visitedHomes.has(key)){
-            const distance = calculateDistance(homes.get(currentHome), coordinates);
-            if (distance < closestDistance){
-                closestDistance = distance;
-                closestHome = key;
-          }
+        let closestDistance = Infinity;
+        let closestHome;
+        for(const [key, coordinates] of homes){
+            if(!visitedHomes.has(key)){
+                const distance = calculateDistance(homes.get(currentHome), coordinates);
+                if(distance < closestDistance){
+                    closestDistance = distance;
+                    closestHome = key;
+                }
+            }
         }
-      }
-  
     visitedHomes.add(closestHome);
     console.log("Visit ${closestHome}");
     currentHome = closestHome;
