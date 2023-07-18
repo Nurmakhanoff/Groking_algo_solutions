@@ -31,6 +31,8 @@ function bfs(graph, root){
     return nodesLength;  
 };
 
-// Answer is - not.
-// Greedy algorithms make current optimal choices at each step. In contrast, BFS does not make choices based on optimizing any criteria. It explores the graph, visiting all the vertices at a given level before moving to the next one. BFS focuses on breadth rather than optimizing any specific goal or objective.
-//BFS is not specifically for solving optimization problems, so it doesn't make sense (i.e., it's not even wrong) to say that BFS is a greedy algorithm unless you are applying it to an optimization problem. 
+// I was wrong, answer is - yes.
+// The simple answer is YES. To better understand this I would suggest reading on greedy vs heuristics algorithm.
+//Greedy algorithms supply an exact solution! Heuristic algorithms use probability and statistics in order to avoid running through all the possibilities and provide an "estimated best solution" (which means that if a better solution exists, it will be only slightly better).
+//A greedy algorithms follow locally optimal solution at each stage. While searching for the best solution, the best so far solution is only updated if the search finds a better solution. Whereas this is not always the case with heuristic algorithms (e.g. genetic, evolutionary, Tabu search, ant search, and so forth). Heuristic algorithms may update the best so far even if it's worse than the best so far to avoid getting trapped in a local optimal solution.
+//Therefore, in nutshell BFS/DFS generally fall under greedy algorithms.
