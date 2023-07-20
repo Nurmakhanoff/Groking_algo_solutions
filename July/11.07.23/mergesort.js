@@ -7,7 +7,7 @@
                array.push(right_sub_array.shift())
             }
          }
-         return [array, left_sub_array, right_sub_array]
+            return [ ...array, ...left_sub_array, ...right_sub_array ]
       }
       function merge_sort(unsorted_Array) {
          const middle_index = unsorted_Array.length / 2
